@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title>Detalhes do Depósito</mat-card-title>
+  
+  <mat-grid-list cols="2" rowHeight="8:1">
+      <mat-grid-tile class="item"><strong>Data</strong></mat-grid-tile>
+      <mat-grid-tile class="item-exibido">{{mock_extrato_deposito.data}}</mat-grid-tile>  
+      <mat-grid-tile class="item"><strong>Operação</strong></mat-grid-tile>
+      <mat-grid-tile class="item-exibido">Depósito</mat-grid-tile>    
+      <mat-grid-tile class="item"><strong>Valor:</strong></mat-grid-tile>
+      <mat-grid-tile>{{mock_extrato_deposito.valor}}</mat-grid-tile>       
+  </mat-grid-list>
+
+  <button mat-raised-button routerLink="/home" color="primary">
+      Voltar
+  </button>    
+  
+</mat-card>

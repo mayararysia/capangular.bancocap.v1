@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-title>Detalhes do Cliente</mat-card-title>
+    
+    <mat-grid-list cols="2" rowHeight="6:1">
+        <mat-grid-tile class="item"><strong>Nome:</strong></mat-grid-tile>
+        <mat-grid-tile class="item-exibido">{{mock_cliente.nome}}</mat-grid-tile>    
+        <mat-grid-tile class="item"><strong>CPF:</strong></mat-grid-tile>
+        <mat-grid-tile>{{mock_cliente.cpf}}</mat-grid-tile>       
+    </mat-grid-list>
+
+    <button mat-raised-button routerLink="/clientes" color="primary">
+        Voltar
+    </button>    
+    
+</mat-card>

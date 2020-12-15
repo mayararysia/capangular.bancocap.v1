@@ -1,0 +1,13 @@
+
+.item {
+    font-weight: bold;
+}
+
+.item-exibido {
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.div-item-obrigatorio {
+    color:#e0120f !important;
+}

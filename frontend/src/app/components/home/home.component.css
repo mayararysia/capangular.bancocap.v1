@@ -1,0 +1,26 @@
+.home .title {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.home .subtitle {
+    font-size: 1.1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.informacoes{
+    text-align: center;
+}
+
+.title{
+    text-align: center;
+}
+
+.subtitle{
+    text-align: center;
+}

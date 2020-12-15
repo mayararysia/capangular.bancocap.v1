@@ -1,0 +1,18 @@
+<mat-card>
+     <mat-card-title>Detalhes da Conta</mat-card-title>
+    <mat-grid-list cols="2" rowHeight="9:1">
+        <mat-grid-tile class="item">Código Hash: </mat-grid-tile>
+        <mat-grid-tile class="item-exibido">{{mock_conta.hash}}</mat-grid-tile>    
+        <mat-grid-tile class="item">Nome: </mat-grid-tile>
+        <mat-grid-tile class="item-exibido">{{mock_conta.cliente.nome}}</mat-grid-tile> 
+        <mat-grid-tile class="item">CPF: </mat-grid-tile> 
+        <mat-grid-tile class="item-exibido">{{mock_conta.cliente.cpf}}</mat-grid-tile>     
+        <mat-grid-tile class="item">Saldo: </mat-grid-tile> 
+        <mat-grid-tile class="item-exibido">{{mock_conta.cliente.cpf}}</mat-grid-tile>  
+    </mat-grid-list>
+
+    <button mat-raised-button routerLink="/contas" color="primary">
+        Voltar
+    </button>    
+    
+</mat-card>

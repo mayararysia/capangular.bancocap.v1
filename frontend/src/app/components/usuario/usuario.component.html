@@ -1,0 +1,39 @@
+<mat-card>
+    <mat-card-title>Cadastro de usuário</mat-card-title>
+    <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <mat-form-field>
+            <input matInput placeholder="Nome" 
+            [(ngModel)]="usuario.nome" name="nome" #nome="ngModel" ngModel><br>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Data de Nascimento" 
+            required mask="d0/M0/0000" 
+            [(ngModel)]="usuario.dataNascimento" name="dataNascimento" #dataNascimento="ngModel" 
+            ngModel><br>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <input required matInput placeholder="Email: example@domain.com" type="email"
+                [formControl]="email" required  [(ngModel)]="usuario.email" name="email">
+            <mat-error *ngIf="email.invalid">
+                    {{getErrorMessage()}}
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput placeholder="Senha" type="password" min="3" maxlength="8"
+            required
+            [(ngModel)]="usuario.senha" name="senha" #senha="ngModel" ngModel>
+            <br>
+        </mat-form-field>
+       
+    </form>
+     
+    <button mat-raised-button type="submit" (click)="cadastroUsuario()" color="primary" 
+    [disabled]="!form.form.valid || email.invalid">
+        Salvar
+    </button>
+
+    <button mat-raised-button routerLink="/home">
+        Cancelar
+    </button>
+</mat-card>

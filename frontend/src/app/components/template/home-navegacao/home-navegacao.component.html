@@ -1,0 +1,52 @@
+ <mat-sidenav-container class="container"> <!--container -->
+    <mat-sidenav class="sidenav" mode="side"
+     opened fixedInViewport="true" fixedTopGap="64"> <!--sidenav -->
+        <mat-nav-list class="nav-list"> <!-- lista-->
+            <a mat-list-item routerLink="/home">
+                <i class="material-icons">
+                    home
+                </i>
+                Início
+            </a>
+            <a mat-list-item routerLink="/clientes">
+                <i class="material-icons">
+                    assignment_ind
+                </i>
+                Clientes
+            </a>
+            <a mat-list-item routerLink="/contas">
+                <i class="material-icons">
+                    savings
+                </i>
+                Conta
+            </a>
+            <a mat-list-item routerLink="/depositos">
+                <i class="material-icons">
+                    addchart
+                </i>
+                Depósito
+            </a>
+            <a mat-list-item routerLink="/saques">
+                <i class="material-icons">
+                    remove_circle_outline
+                </i>
+                Saque
+            </a>
+            <a mat-list-item routerLink="/transferencias">
+                <i class="material-icons">
+                    sync_alt
+                </i>
+                Transferência
+            </a>
+            <a mat-list-item routerLink="/extrato">
+                <i class="material-icons">
+                    attach_money
+                </i>
+                Extrato
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content"> <!--navega e altera o que estiver dentro do conteúdo -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

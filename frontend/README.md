@@ -45,16 +45,8 @@ O trabalho e a entrega deverá ser feito em grupo e a entrega deverá ser public
 **Repositório:**
 [GitHub]/capangular.bancocap
 
-## Run BACK-END - Instrução
 
-Entre na pasta server via prompt de comando e os comandos digite:
-
-```
-npm install
-npm start
-```
-
-## Run FRONT-END - Instrução
+## Run  - Instrução
 
 Entre na pasta via prompt de comando e os comandos digite:
 

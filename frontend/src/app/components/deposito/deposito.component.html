@@ -1,0 +1,40 @@
+<mat-card>
+    <div *ngIf="depositoForm.invalid && depositoForm.dirty"
+        class="alert alert-danger div-item-obrigatorio">
+        Preencha todos os campos corretamente!
+    </div>
+    <mat-card-title>Depósito</mat-card-title>
+    <form #depositoForm="ngForm" autocomplete="off" >
+        <mat-label class="data-atual">{{dataAtual}}</mat-label>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Hash" type="text"     
+            required
+            [(ngModel)]="deposito.hash" name="hash" #hash="ngModel"
+            minlength="10" maxlength="100">
+        </mat-form-field>
+        <div [hidden]="hash.valid || hash.pristine"
+            class="alert alert-danger div-item-obrigatorio">
+            Hash obrigatório e deve ter 10 caracteres!
+        </div>
+        <mat-form-field>
+            <input matInput placeholder="R$ " type="number"
+            required min="1"
+            [(ngModel)]="deposito.valor" name="valor" #valor="ngModel">
+            <div [hidden]="valor.valid || valor.pristine"
+                class="alert alert-danger div-item-obrigatorio">
+                Valor é obrigatório acima de R$ 0.00!
+            </div>
+        </mat-form-field>        
+    </form>
+
+    <button type="submit" mat-raised-button [disabled]="!depositoForm.form.valid"
+            routerLink ='/deposito-view' color="primary" (click)="cadastrarDeposito()">
+            Salvar
+    </button>
+
+    <button mat-raised-button (click)="depositoForm.reset()">
+        Cancelar
+    </button>
+
+</mat-card>

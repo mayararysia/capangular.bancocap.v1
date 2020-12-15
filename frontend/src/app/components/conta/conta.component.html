@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-title>Cadastrar Conta</mat-card-title>
+    <form (ngSubmit)="onSubmit()" #contaForm="ngForm">
+        <mat-form-field>
+            <input id="hcode" name="hcode" type="text"
+                required
+                matInput placeholder="Hash" disabled="false"
+                [(ngModel)]="hash" #hcode="ngModel" >
+        </mat-form-field>
+         <mat-form-field appearance="fill">
+            <mat-label>Selecione um cliente</mat-label>
+            <mat-select required [(ngModel)]="selectedValue" name="nome">
+                <mat-option *ngFor="let cliente of mock_clientes" [value]="cliente.nome">
+                    {{cliente.nome}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Saldo" type="number"
+            required
+            [(ngModel)]="conta.saldo" name="saldo" #saldo="ngModel" id="saldo">
+            <div [hidden]="saldo.valid || saldo.pristine" class="alert alert-danger div-item-obrigatorio">
+                Código da conta é obrigatório!
+            </div>
+        </mat-form-field>
+    </form>
+
+    <button type="submit" routerLink="/conta-view" mat-raised-button [disabled]="!contaForm.form.valid" (click)="criarConta()" color="primary">
+        Salvar
+    </button>
+    
+    <button mat-raised-button routerLink="/">
+        Cancelar
+    </button>
+</mat-card>
