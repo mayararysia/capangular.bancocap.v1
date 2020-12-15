@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Cliente } from 'src/app/model/cliente.model';
-import { Conta } from 'src/app/model/conta.model';
+import { Cliente } from 'src/app/models/cliente.model';
+import { Conta } from 'src/app/models/conta.model';
 import * as objectHash from 'object-hash';
+import { ContaService } from 'src/app/services/conta.service';
+import { Router } from '@angular/router';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-conta',
@@ -25,6 +28,8 @@ export class ContaComponent implements OnInit {
     saldo: 0.0
   }
 
+  clientes: Cliente [];
+
   mock_clientes: Cliente[] = [
     { cpf: '1', nome: "John" },
     { cpf: '2', nome: "Mary" },
@@ -33,14 +38,28 @@ export class ContaComponent implements OnInit {
     { cpf: '5', nome: "Michel"}
   ];
 
-  constructor() { }
+  constructor(
+    private contaService: ContaService,
+    private clienteService: ClienteService,
+    private router: Router) {
+  }
 
   ngOnInit(): void {
+    this.clienteService.listarClientes().subscribe(clientes => {
+      this.clientes = clientes;
+      console.log(this.clientes);
+    });
   }
 
   onSubmit() { this.submitted = true; }
 
+  showMessage(msg: string, conta: Conta): void {
+    alert(msg);
+    console.log(conta);
+  }
+
   criarConta(): void {
+    this.contaService.criarContas(this.conta);
     alert("Conta criada com sucesso!");
     this.encontrarClientePorNome(this.selectedValue)
     this.conta.hash = this.hash;

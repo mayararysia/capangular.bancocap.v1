@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from 'src/app/model/cliente.model';
+import { Cliente } from 'src/app/models/cliente.model';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-cliente-view',
@@ -13,13 +14,15 @@ export class ClienteViewComponent implements OnInit {
     nome: "Sophie"
   }
 
-  constructor() { }
+  clientes: Cliente [];
+
+  constructor(private clienteService: ClienteService) { }
 
   ngOnInit(): void {
-  }
-
-  teste(): void{
-    
-  }
+    this.clienteService.listarClientes().subscribe(clientes => {
+      this.clientes = clientes;
+      console.log(this.clientes);
+    });
+  } 
 
 }

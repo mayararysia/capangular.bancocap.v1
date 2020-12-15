@@ -34,44 +34,25 @@
       "senha": "2020",
       "email": "hebrain@gmail.com",
       "dataNascimento": ""
-    },
+    }
+  ],
+  "clientes": [
     {
-      "nome": "usuario teste",
-      "dataNascimento": "12/12/2020",
-      "email": "usertest@gmail.com",
-      "senha": "1212",
-      "id": 6
-    },
+      "id": 30,
+      "nome": "Sophie",
+      "cpf": "341.000.658-44"
+    }
+  ],
+  "contas": [
     {
-      "nome": "teste gilton",
-      "dataNascimento": "13/12/2020",
-      "email": "oi@oi.com.br",
-      "senha": "senhasenha",
-      "id": 7
-    },
-    {
-      "nome": "novo teste",
-      "dataNascimento": "14/12/2020",
-      "email": "usertest2@gmail.com",
-      "senha": "111",
-      "id": 8
-    },
-    {
-      "nome": "maria",
-      "dataNascimento": "14/12/2020",
-      "email": "maria@gmail.com",
-      "senha": "222",
-      "id": 9
-    },
-    {
-      "id": 10
-    },
-    {
-      "nome": "usuario teste 3",
-      "dataNascimento": "14/12/2020",
-      "email": "usertest3@gmail.com",
-      "senha": "12",
-      "id": 11
+      "id": 10,
+      "hash": "341.000.658-44",
+      "cliente": {
+        "id": 30,
+        "nome": "Sophie",
+        "cpf": "341.000.658-44"
+      },
+      "saldo": 20000
     }
   ]
 }

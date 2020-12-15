@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Deposito } from 'src/app/model/deposito.model';
+import { Deposito } from 'src/app/models/deposito.model';
 import * as objectHash from 'object-hash';
 
 @Component({

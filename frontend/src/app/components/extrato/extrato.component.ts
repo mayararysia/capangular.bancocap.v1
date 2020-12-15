@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Deposito } from 'src/app/model/deposito.model';
-import { Extrato } from 'src/app/model/extrato.model';
-import { Saque } from 'src/app/model/saque.model';
-import { Transferencia } from 'src/app/model/transferencia.model';
+import { Deposito } from 'src/app/models/deposito.model';
+import { Extrato } from 'src/app/models/extrato.model';
+import { Saque } from 'src/app/models/saque.model';
+import { Transferencia } from 'src/app/models/transferencia.model';
 
 @Component({
   selector: 'app-extrato',

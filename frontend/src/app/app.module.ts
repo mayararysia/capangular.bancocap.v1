@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//components filhos
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { HomeNavegacaoComponent } from './components/template/home-navegacao/home-navegacao.component';
@@ -12,6 +14,9 @@ import { DepositoComponent } from './components/deposito/deposito.component';
 import { SaqueComponent } from './components/saque/saque.component';
 import { TransferenciaComponent } from './components/transferencia/transferencia.component';
 import { ExtratoComponent } from './components/extrato/extrato.component';
+import { DepositoViewComponent } from './components/deposito/deposito-view/deposito-view.component';
+import { SaqueViewComponent } from './components/saque/saque-view/saque-view.component';
+import { TransferenciaViewComponent } from './components/transferencia/transferencia-view/transferencia-view.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
@@ -35,32 +40,39 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
 import { recuperarSenhaComponent } from './components/recuperarSenha/recuperarSenha.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AppConfig } from './../app/token';
+import { LoggerService } from './services/logger/logger.service';
 
-import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
-import { AgGridModule } from 'ag-grid-angular';
+//import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
 
-//Moeda
-export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
-  align: "right",
-  allowNegative: true,
-  decimal: ",",
-  precision: 2,
-  prefix: "R$ ",
-  suffix: "",
-  thousands: "."
-};
+// import { AgGridModule } from 'ag-grid-angular';
 
-//Data local
-import { registerLocaleData } from '@angular/common';
-import localeBr from '@angular/common/locales/pt';
-import { DepositoViewComponent } from './components/deposito/deposito-view/deposito-view.component';
-import { SaqueViewComponent } from './components/saque/saque-view/saque-view.component';
-import { TransferenciaViewComponent } from './components/transferencia/transferencia-view/transferencia-view.component';
-registerLocaleData(localeBr, 'pt');
+// //Moeda
+// export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
+//   align: "right",
+//   allowNegative: true,
+//   decimal: ",",
+//   precision: 2,
+//   prefix: "R$ ",
+//   suffix: "",
+//   thousands: "."
+// };
+
+// //Data local
+// import { registerLocaleData } from '@angular/common';
+// import localeBr from '@angular/common/locales/pt';
+
+// registerLocaleData(localeBr, 'pt');
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
+
+const APP_CONFIG: Config = Object.freeze({
+  serviceURL: "http://localhost:3001",
+  IsDevelopmentEnv: true,
+  backgroundColor: "white"
+})
 
 @NgModule({
   declarations: [
@@ -101,12 +113,22 @@ const maskConfig: Partial<IConfig> = {
     MatSelectModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CurrencyMaskModule,
-    AgGridModule,
+    // CurrencyMaskModule,
+    // AgGridModule,
     NgxMaskModule.forRoot(maskConfig),
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'pt-BR'},
-              { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }],
+  // providers: [{provide: LOCALE_ID, useValue: 'pt-BR'},
+  //             { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }],
+  providers: [
+    { provide: LoggerService, useClass: LoggerService },
+    { provide: AppConfig, useValue: APP_CONFIG }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+interface Config {
+  serviceURL?:string,
+  IsDevelopmentEnv?:boolean,
+  backgroundColor?: string
+}

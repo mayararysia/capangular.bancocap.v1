@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Saque } from 'src/app/model/saque.model';
+import { Saque } from 'src/app/models/saque.model';
 
 @Component({
   selector: 'app-saque',

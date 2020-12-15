@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Transferencia } from 'src/app/model/transferencia.model';
+import { Transferencia } from 'src/app/models/transferencia.model';
 
 @Component({
   selector: 'app-transferencia',

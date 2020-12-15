@@ -1,39 +1,59 @@
-<mat-card>
-    <div *ngIf="clienteForm.invalid && clienteForm.dirty"
-         class="alert alert-danger div-alerta">
-         Preencha todos os campos corretamente!
-    </div>
-    <mat-card-title>Cadastrar Cliente</mat-card-title>
-    <form (ngSubmit)="onSubmit(clienteForm)" #clienteForm="ngForm" autocomplete="off" > 
-    
-        <mat-form-field>
-            <input matInput placeholder="Nome" 
-            required
-            [(ngModel)]="cliente.nome" name="nome" #nome="ngModel"
-            minlength="3" maxlength="100">
-            <div [hidden]="nome.valid || nome.pristine" class="alert alert-danger div-item-obrigatorio">
-                Nome é obrigatório e deve ter no mínimo três caracteres!
-            </div>
-        </mat-form-field>
-      
-        <mat-form-field>
-            <input matInput placeholder="CPF" #cpf="ngModel"
-            required
-            [(ngModel)]="cliente.cpf" name="cpf" mask= "000.000.000-00"
-            minlength="11">
-            <div [hidden]="cpf.valid || cpf.pristine"
-                class="alert alert-danger div-item-obrigatorio">
-                CPF é obrigatório e deve ter no mínimo 11 caracteres!
-            </div>
-        </mat-form-field>
-    </form>
+<div [hidden]="submitted">
+    <mat-card>
+        <div *ngIf="clienteForm.invalid && clienteForm.dirty"
+            class="alert alert-danger div-alerta">
+            Preencha todos os campos corretamente!
+        </div>
+        <mat-card-title>Cadastrar Cliente</mat-card-title>
+        <form (ngSubmit)="onSubmit()" #clienteForm="ngForm" autocomplete="off" > 
+        
+            <mat-form-field>
+                <input matInput placeholder="Nome" 
+                required
+                [(ngModel)]="cliente.nome" name="nome" #nome="ngModel"
+                minlength="3" maxlength="100">
+                <div [hidden]="nome.valid || nome.pristine" class="alert alert-danger div-item-obrigatorio">
+                    Nome é obrigatório e deve ter no mínimo três caracteres!
+                </div>
+            </mat-form-field>
+        
+            <mat-form-field>
+                <input matInput placeholder="CPF" #cpf="ngModel"
+                required
+                [(ngModel)]="cliente.cpf" name="cpf" mask= "000.000.000-00"
+                minlength="11">
+                <div [hidden]="cpf.valid || cpf.pristine"
+                    class="alert alert-danger div-item-obrigatorio">
+                    CPF é obrigatório e deve ter no mínimo 11 caracteres!
+                </div>
+            </mat-form-field>
+        </form>
 
-    <button type="submit" mat-raised-button [disabled]="!clienteForm.form.valid"
-        routerLink = "/cliente-view" color="primary" (click)="criarCliente()">
-        Salvar
-    </button>
-    
-    <button routerLink="/home" mat-raised-button (click)="clienteForm.reset()">
-        Cancelar
-    </button>
-</mat-card>
+        <button type="submit" mat-raised-button [disabled]="!clienteForm.form.valid"
+            color="primary" (click)="criarCliente()">
+            Salvar
+        </button>
+        
+        <button mat-raised-button (click)="clienteForm.reset(); voltar()">
+            Cancelar
+        </button>
+    </mat-card>
+</div>
+<!-- Cliente View -->
+<div [hidden]="!submitted">
+    <mat-card>
+        <mat-card-title>Detalhes do Cliente</mat-card-title>
+        
+        <mat-grid-list cols="2" rowHeight="6:1">
+            <mat-grid-tile class="item"><strong>Nome:</strong></mat-grid-tile>
+            <mat-grid-tile class="item-exibido">{{cliente.nome}}</mat-grid-tile>    
+            <mat-grid-tile class="item"><strong>CPF:</strong></mat-grid-tile>
+            <mat-grid-tile>{{cliente.cpf}}</mat-grid-tile>       
+        </mat-grid-list>
+
+        <button mat-raised-button routerLink="/clientes" color="primary" 
+        (click)="voltarCriarCliente()">
+            Voltar
+        </button>    
+    </mat-card>
+</div>

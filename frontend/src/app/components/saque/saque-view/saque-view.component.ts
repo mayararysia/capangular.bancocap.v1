@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Deposito } from 'src/app/model/deposito.model';
-import { Saque } from 'src/app/model/saque.model';
+import { Deposito } from 'src/app/models/deposito.model';
+import { Saque } from 'src/app/models/saque.model';
 
 @Component({
   selector: 'app-saque-view',

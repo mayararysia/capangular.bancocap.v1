@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Deposito } from 'src/app/model/deposito.model';
+import { Deposito } from 'src/app/models/deposito.model';
 
 @Component({
   selector: 'app-deposito-view',

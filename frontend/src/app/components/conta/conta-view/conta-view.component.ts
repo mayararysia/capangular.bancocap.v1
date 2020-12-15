@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Conta } from 'src/app/model/conta.model';
+import { Conta } from 'src/app/models/conta.model';
 
 @Component({
   selector: 'app-conta-view',
